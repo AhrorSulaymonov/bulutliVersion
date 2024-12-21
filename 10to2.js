@@ -1,25 +1,11 @@
-const { exec } = require("child_process");
-
-// Versiyadan versiyaga o'tish funksiyasi
-function checkoutVersion(version) {
-  exec(`git checkout ${version}`, (error, stdout, stderr) => {
-    if (error) {
-      console.error(`Xato yuz berdi: ${error.message}`);
-      return;
-    }
-    if (stderr) {
-      console.error(`Git xatosi: ${stderr}`);
-      return;
-    }
-    console.log(`Muvaffaqiyatli o'tildi: ${stdout}`);
-  });
+function decimalToBinary(decimal) {
+  // 10-lik sanoq sistemasidan 2-likka o'tish
+  return decimal.toString(2);
 }
 
-// Asosiy qism: 10-dan 2-ga o'tish
-const currentVersion = "10";
-const targetVersion = "2";
+// Misol: 10-lik sonlarni 2-likka o'girish
+const decimalNumber = 10; // 10-lik son
+const binaryNumber = decimalToBinary(decimalNumber);
 
-console.log(`Hozirgi versiya: ${currentVersion}`);
-console.log(`Maqsad versiya: ${targetVersion}`);
-
-checkoutVersion(targetVersion);
+console.log(`10-lik sanoq sistemasidagi son: ${decimalNumber}`);
+console.log(`2-lik sanoq sistemasidagi son: ${binaryNumber}`);
